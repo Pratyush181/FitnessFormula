@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Rep Max Calculator</title>
+    <link rel="stylesheet" href="OneRepMaxCalculator.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/FFlogo.png" alt="Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="DietPlans.html">Diet Plans</a></li>
+            <li><a href="ExercisePlans.html">Exercise Plans</a></li>
+            <li class="dropdown">
+                <a class="dropbtn">All Features</a>
+                <ul class="dropdown-content">
+                    <li><a href="index.html#fitness-planner">Fitness Planner</a></li>
+                    <li><a href="OneRepMaxCalculator.html">1Rep Max Calculator</a></li>
+                    <li><a href="StrengthLevelCalculator.html">Strength Level Calculator</a></li>
+                    <li><a href="BMICalculator.html">BMI Calculator</a></li>
+                    <li><a href="BodyFatCalculator.html">Body Fat Calculator</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="spacer"></div>
+    </nav>
+
+    <h1 style="text-align: center; margin-top: 40px;">One Rep Max Calculator</h1> <!-- Increased margin-top from 20px to 40px -->
+
+    <div class="calculator-container">
+        <div class="input-section">
+            <label for="weight">Weight Lifted (kg):</label>
+            <input type="number" id="weight" min="0" placeholder="Enter weight" required>
+
+            <label for="reps">Number of Reps:</label>
+            <input type="number" id="reps" min="1" placeholder="Enter reps" required>
+
+            <button id="calculate-btn">Calculate 1RM</button>
+            <button id="reset-btn">Reset</button>
+        </div>
+        <div class="result-section">
+            <h3 class="result-label">Estimated 1RM</h3> <!-- Added class for styling -->
+            <p id="result">0 kg</p>
+        </div>
+    </div>
+
+    <script>
+        // One Rep Max Calculation (Epley Formula)
+        document.getElementById('calculate-btn').addEventListener('click', () => {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const reps = parseInt(document.getElementById('reps').value);
+            const resultElement = document.getElementById('result');
+
+            if (isNaN(weight) || isNaN(reps) || weight <= 0 || reps < 1) {
+                resultElement.textContent = 'Please enter valid values (weight > 0, reps >= 1)';
+                return;
+            }
+
+            // Epley Formula: 1RM = weight × (1 + reps / 30)
+            const oneRepMax = weight * (1 + reps / 30);
+            resultElement.textContent = `${oneRepMax.toFixed(2)} kg`;
+        });
+
+        // Reset Functionality
+        document.getElementById('reset-btn').addEventListener('click', () => {
+            document.getElementById('weight').value = '';
+            document.getElementById('reps').value = '';
+            document.getElementById('result').textContent = '0 kg';
+        });
+    </script>
+</body>
+</html>

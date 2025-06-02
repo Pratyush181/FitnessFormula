@@ -1,0 +1,171 @@
+/* Reset and Base Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    line-height: 1.6;
+    font-size: 16px;
+    padding-top: 80px; /* Add padding to account for fixed navbar */
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    background-color: #2c2c2c;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.logo {
+    width: 65px;
+}
+
+.logo img {
+    height: 65px;
+    width: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #bbb;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    color: #fff;
+    background-color: #007bff;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
+}
+
+.dropdown-content a {
+    color: #bbb;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.dropdown-content a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.spacer {
+    width: 65px;
+}
+
+/* Recipes Container */
+.recipes-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px; /* Consistent with nav-links gap */
+    padding: 20px 5%; /* Matches input-output-box padding */
+    max-width: 1200px; /* Matches input-output-box max-width */
+    margin: 30px auto; /* Matches container margin */
+}
+
+/* Individual Recipe Cards */
+.recipe {
+    background: #222; /* Matches container background */
+    border-radius: 12px; /* Matches container border-radius */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Matches container shadow */
+    width: 300px;
+    padding: 25px; /* Matches output padding */
+    text-align: center;
+    transition: all 0.3s ease-in-out; /* Matches button transition */
+}
+
+.recipe:hover {
+    transform: translateY(-2px); /* Matches button hover effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.recipe img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px; /* Matches userInput border-radius */
+}
+
+.recipe h2 {
+    color: #fff; /* Matches input-section h2 */
+    font-size: 20px; /* Matches input-section h2 */
+    font-weight: 600;
+    margin: 12px 0 6px; /* Matches label spacing */
+}
+
+.recipe p {
+    color: #ffffff; /* Matches container p */
+    font-size: 16px; /* Matches container p */
+    line-height: 1.5;
+}
+
+.buttonToRecipe{
+    width: 60%;
+    padding: 10px;
+    background-color: #1781f2;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: all 0.3s ease;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Plans</title>
+    <link rel="stylesheet" href="ExercisePlans.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/FFlogo.png" alt="Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="DietPlans.html">Diet Plans</a></li>
+            <li><a href="ExercisePlans.html">Exercise Plans</a></li>
+            <li class="dropdown">
+                <a class="dropbtn">All Features</a>
+                <ul class="dropdown-content">
+                    <li><a href="index.html#fitness-planner">Fitness Planner</a></li>
+                    <li><a href="OneRepMaxCalculator.html">1Rep Max Calculator</a></li>
+                    <li><a href="StrengthLevelCalculator.html">Strength Level Calculator</a></li>
+                    <li><a href="BMICalculator.html">BMI Calculator</a></li>
+                    <li><a href="BodyFatCalculator.html">Body Fat Calculator</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="spacer"></div>
+    </nav>
+    
+    <h1 style="text-align: center; margin-top: 20px;">Exercise Plans</h1>
+
+    <!-- Tab Navigation -->
+    <div class="tab-container">
+        <button class="tab-btn" data-tab="fitness-plans">Fitness Plans</button>
+        <button class="tab-btn active" data-tab="chest">Chest</button>
+        <button class="tab-btn" data-tab="back">Back</button>
+        <button class="tab-btn" data-tab="legs">Legs</button>
+        <button class="tab-btn" data-tab="biceps">Biceps</button>
+        <button class="tab-btn" data-tab="triceps">Triceps</button>
+        <button class="tab-btn" data-tab="shoulders">Shoulders</button>
+        <button class="tab-btn" data-tab="forearms">Forearms</button>
+        <button class="tab-btn" data-tab="abs">Abs</button>
+        <button class="tab-btn" data-tab="cardio">Cardio</button>
+        <button class="tab-btn" data-tab="others">Others</button>
+    </div>
+
+    <!-- Exercises Container -->
+    <div class="exercises-container">
+        <!-- Fitness Plans -->
+        <div class="exercise" data-category="fitness-plans">
+            <h2>Full Body Circuit Training</h2>
+            <p><strong>Frequency:</strong> 4-5 days/week</p>
+            <p><strong>Summary:</strong> Burns fat with high-intensity circuits.</p>
+            <a href="FitnessPlanDetails.html#full-body-circuit-training" target="_blank">View Plan</a>
+        </div>
+        <div class="exercise" data-category="fitness-plans">
+            <h2>HIIT Bodyweight Workouts</h2>
+            <p><strong>Frequency:</strong> 4-5 days/week</p>
+            <p><strong>Summary:</strong> Accelerates fat loss with intense bodyweight intervals.</p>
+            <a href="FitnessPlanDetails.html#hiit-bodyweight-workouts" target="_blank">View Plan</a>
+        </div>
+        <div class="exercise" data-category="fitness-plans">
+            <h2>Push-Pull-Legs (PPL)</h2>
+            <p><strong>Frequency:</strong> 5-6 days/week</p>
+            <p><strong>Summary:</strong> Targets muscle growth with compound lifts.</p>
+            <a href="FitnessPlanDetails.html#push-pull-legs" target="_blank">View Plan</a>
+        </div>
+        <div class="exercise" data-category="fitness-plans">
+            <h2>Progressive Calisthenics</h2>
+            <p><strong>Frequency:</strong> 4-5 days/week</p>
+            <p><strong>Summary:</strong> Builds muscle through progressive bodyweight exercises.</p>
+            <a href="FitnessPlanDetails.html#progressive-calisthenics" target="_blank">View Plan</a>
+        </div>
+        <div class="exercise" data-category="fitness-plans">
+            <h2>Upper-Lower Split</h2>
+            <p><strong>Frequency:</strong> 3-4 days/week</p>
+            <p><strong>Summary:</strong> Maintains physique with balanced strength training.</p>
+            <a href="FitnessPlanDetails.html#upper-lower-split" target="_blank">View Plan</a>
+        </div>
+        <div class="exercise" data-category="fitness-plans">
+            <h2>Balanced Bodyweight Routine</h2>
+            <p><strong>Frequency:</strong> 3-4 days/week</p>
+            <p><strong>Summary:</strong> Sustains fitness with moderate bodyweight exercises.</p>
+            <a href="FitnessPlanDetails.html#balanced-bodyweight-routine" target="_blank">View Plan</a>
+        </div>
+
+        <!-- Existing Exercise Cards (unchanged) -->
+        <!-- Chest Exercises -->
+        <div class="exercise" data-category="chest">
+            <img src="images/exerciseImages/barbellbenchpress.jpg" alt="Bench Press">
+            <h2>Barbell Bench Press</h2>
+            <p>Targets: Pectoralis Major. A classic compound movement for building chest strength.</p>
+            <a href="https://www.youtube.com/watch?v=rT7DgCr-3pg" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="chest">
+            <img src="images/exerciseImages/incline-dumbbell-bench-press_0.webp" alt="Incline Dumbbell Press">
+            <h2>Incline Dumbbell Press</h2>
+            <p>Targets: Upper Chest. Builds the upper pecs and improves chest aesthetics.</p>
+            <a href="https://www.youtube.com/watch?v=8iPEnn-ltC8" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="chest">
+            <img src="images/exerciseImages/chest-fly-elbow-pain.jpg" alt="Dumbbell Chest Fly">
+            <h2>Dumbbell Chest Fly</h2>
+            <p>Targets: Inner Chest. Isolates the chest with a deep stretch and strong contraction.</p>
+            <a href="https://www.youtube.com/watch?v=eozdVDA78K0" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="chest">
+            <img src="images/exerciseImages/pushuops.jpg" alt="Push-Ups">
+            <h2>Push-Ups</h2>
+            <p>Targets: Mid & Lower Chest. A bodyweight staple for overall chest development.</p>
+            <a href="https://www.youtube.com/watch?v=IODxDxX7oi4" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="chest">
+            <img src="images/exerciseImages/cable_crossovers.webp" alt="Cable Crossover">
+            <h2>Cable Crossover</h2>
+            <p>Targets: Inner & Lower Chest. Delivers constant tension for muscle definition.</p>
+            <a href="https://www.youtube.com/watch?v=taI4XduLpTk" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="chest">
+            <img src="images/exerciseImages/inclinemachine.webp" alt="Incline Machine Press">
+            <h2>Incline Machine Press</h2>
+            <p>Targets: Upper Chest. Safe, stable press to focus on upper pec growth.</p>
+            <a href="https://www.youtube.com/watch?v=5M7I8d2s1Gs" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="chest">
+            <img src="images/exerciseImages/chest-dip.webp" alt="Chest Dips">
+            <h2>Chest Dips</h2>
+            <p>Targets: Lower Chest. Leaning forward hits the chest more than the triceps.</p>
+            <a href="https://www.youtube.com/watch?v=2z8JmcrW-As" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <!-- Back Exercises -->
+        <div class="exercise" data-category="back">
+            <img src="images/exerciseImages/deadlift.webp" alt="Deadlift">
+            <h2>Deadlift</h2>
+            <p>Targets: Entire Back. A fundamental compound movement that builds overall back strength and mass.</p>
+            <a href="https://www.youtube.com/watch?v=1ZXobu7JvvE" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="back">
+            <img src="images/exerciseImages/bent_over_barbell_row.jpg" alt="Bent-Over Barbell Row">
+            <h2>Bent-Over Barbell Row</h2>
+            <p>Targets: Middle Back. Enhances thickness and strength by engaging the rhomboids and latissimus dorsi.</p>
+            <a href="https://www.youtube.com/watch?v=8Ozyi6gVgjc" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="back">
+            <img src="images/exerciseImages/pull_up.jpeg" alt="Pull-Up">
+            <h2>Pull-Up</h2>
+            <p>Targets: Upper Back. Utilizes body weight to develop the upper back and improve overall back definition.</p>
+            <a href="https://www.youtube.com/watch?v=eGo4IYlbE5g" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="back">
+            <img src="images/exerciseImages/single_arm_dumbbell_row.jpeg" alt="Single-Arm Dumbbell Row">
+            <h2>Single-Arm Dumbbell Row</h2>
+            <p>Targets: Lats. Focuses on unilateral lat development, enhancing muscle balance and coordination.</p>
+            <a href="https://www.youtube.com/watch?v=pYcpY20QaE8" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="back">
+            <img src="images/exerciseImages/lat_pulldown.jpg" alt="Lat Pulldown">
+            <h2>Lat Pulldown</h2>
+            <p>Targets: Upper Back. Isolates the latissimus dorsi, aiding in width development of the upper back.</p>
+            <a href="https://www.youtube.com/watch?v=CAwf7n6Luuc" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="back">
+            <img src="images/exerciseImages/t_bar_row.webp" alt="T-Bar Row">
+            <h2>T-Bar Row</h2>
+            <p>Targets: Middle Back. Builds back thickness and strength through a compound pulling movement.</p>
+            <a href="https://www.youtube.com/watch?v=0yqD2Kf0Zxo" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <!-- Leg Exercises -->
+        <div class="exercise" data-category="legs">
+            <img src="images/exerciseImages/barbell-squat.avif" alt="Barbell Back Squat">
+            <h2>Barbell Back Squat</h2>
+            <p>Targets: Quads, Hamstrings, Glutes. The king of leg exercises for strength and mass.</p>
+            <a href="https://www.youtube.com/watch?v=Dy28eq2PjcM" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="legs">
+            <img src="images/exerciseImages/romanian-deadlift.jpeg" alt="Romanian Deadlift">
+            <h2>Romanian Deadlift</h2>
+            <p>Targets: Hamstrings & Glutes. Great for building posterior chain strength.</p>
+            <a href="https://www.youtube.com/watch?v=JCXUYuzwNrM" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="legs">
+            <img src="images/exerciseImages/bulgarian-split-squat.webp" alt="Bulgarian Split Squat">
+            <h2>Bulgarian Split Squat</h2>
+            <p>Targets: Quads & Glutes. Unilateral movement for balance and leg hypertrophy.</p>
+            <a href="https://www.youtube.com/watch?v=2C-uNgKwPLE" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="legs">
+            <img src="images/exerciseImages/leg-press.webp" alt="Leg Press">
+            <h2>Leg Press</h2>
+            <p>Targets: Quads, Glutes, Hamstrings. Heavy leg training with lower back support.</p>
+            <a href="https://www.youtube.com/watch?v=IZxyjW7MPJQ" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="legs">
+            <img src="images/exerciseImages/calf-raise.jpeg" alt="Calves">
+            <h2>Calves</h2>
+            <p>Targets: Calves. Focuses on growing stubborn calf muscles.</p>
+            <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=video&cd=&cad=rja&uact=8&ved=2ahUKEwiX1pjensSMAxUPZWwGHTwvGpYQtwJ6BAgXEAI&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DgwLzBJYoWlI&usg=AOvVaw2JFBeWUXFo2Xn7cLu0F3hw&opi=89978449" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <!-- Biceps Exercises -->
+        <div class="exercise" data-category="biceps">
+            <img src="images/exerciseImages/barbell-curl.jpg" alt="Barbell Curl">
+            <h2>Barbell Curl</h2>
+            <p>Targets: Biceps Brachii. A fundamental movement for building overall biceps size and strength.</p>
+            <a href="https://www.youtube.com/watch?v=kwG2ipFRgfo" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="biceps">
+            <img src="images/exerciseImages/incline-dumbbell-curl.webp" alt="Incline Dumbbell Curl">
+            <h2>Incline Dumbbell Curl</h2>
+            <p>Targets: Long Head of Biceps. Emphasizes the stretch and peak contraction of the biceps.</p>
+            <a href="https://www.youtube.com/watch?v=soxrZlIl35U" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="biceps">
+            <img src="images/exerciseImages/hammer-curl.jpeg" alt="Hammer Curl">
+            <h2>Hammer Curl</h2>
+            <p>Targets: Biceps Brachii and Brachialis. Enhances arm thickness and forearm strength.</p>
+            <a href="https://www.youtube.com/watch?v=TwD-YGVP4Bk" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="biceps">
+            <img src="images/exerciseImages/concentration-curl.jpeg" alt="Concentration Curl">
+            <h2>Concentration Curl</h2>
+            <p>Targets: Biceps Peak. Isolates the biceps for focused muscle engagement and definition.</p>
+            <a href="https://www.youtube.com/watch?v=ZRP7XRGL1p8" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <!-- Triceps Exercises -->
+        <div class="exercise" data-category="triceps">
+            <img src="images/exerciseImages/close-grip-bench-press.jpeg" alt="Close-Grip Bench Press">
+            <h2>Close-Grip Bench Press</h2>
+            <p>Targets: Triceps Brachii. A compound movement that emphasizes triceps engagement by narrowing the grip on the barbell.</p>
+            <a href="https://www.youtube.com/watch?v=GxSc4kLg8Ow" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="triceps">
+            <img src="images/exerciseImages/tricep-dips.avif" alt="Tricep Dips">
+            <h2>Tricep Dips</h2>
+            <p>Targets: Triceps Brachii, Pectoralis Major. Bodyweight exercise that effectively isolates the triceps using parallel bars or a bench.</p>
+            <a href="https://www.youtube.com/watch?v=0326dy_-CzM" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="triceps">
+            <img src="images/exerciseImages/overhead-triceps-extension.jpg" alt="Overhead Triceps Extension">
+            <h2>Overhead Triceps Extension</h2>
+            <p>Targets: Triceps Brachii (Long Head). Performed with a dumbbell or barbell to stretch and strengthen the triceps.</p>
+            <a href="https://www.youtube.com/watch?v=nRiJVZDpdL0" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <!-- Shoulder Exercises -->
+        <div class="exercise" data-category="shoulders">
+            <img src="images/exerciseImages/overhead-press.jpg" alt="Overhead Press">
+            <h2>Overhead Press</h2>
+            <p>Targets: Front & Side Delts. A key compound lift for building overall shoulder mass and strength.</p>
+            <a href="https://www.youtube.com/watch?v=2yjwXTZQDDI" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="shoulders">
+            <img src="images/exerciseImages/lateral-raise.webp" alt="Lateral Raise">
+            <h2>Lateral Raise</h2>
+            <p>Targets: Side Delts. Isolates and builds the medial deltoids for wider-looking shoulders.</p>
+            <a href="https://www.youtube.com/watch?v=kDqklk1ZESo" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="shoulders">
+            <img src="images/exerciseImages/rear-delt-fly.jpeg" alt="Rear Delt Fly">
+            <h2>Rear Delt Fly</h2>
+            <p>Targets: Rear Delts. Helps balance shoulder development and improve posture.</p>
+            <a href="https://www.youtube.com/watch?v=pDTHS9jhGwM" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <!-- Forearm Exercises -->
+        <div class="exercise" data-category="forearms">
+            <img src="images/exerciseImages/wrist-curl.webp" alt="Wrist Curl">
+            <h2>Wrist Curl</h2>
+            <p>Targets: Forearm Flexors. Strengthens the inner forearms with controlled wrist movement.</p>
+            <a href="https://www.youtube.com/watch?v=8PBFG2eYz1I" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="forearms">
+            <img src="images/exerciseImages/hammer-curl.jpeg" alt="Hammer Curl">
+            <h2>Hammer Curl</h2>
+            <p>Targets: Biceps Brachii and Brachialis. Enhances arm thickness and forearm strength.</p>
+            <a href="https://www.youtube.com/watch?v=TwD-YGVP4Bk" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <!-- Abs Exercises -->
+        <div class="exercise" data-category="abs">
+            <img src="images/exerciseImages/cable-crunch.webp" alt="Cable Crunch">
+            <h2>Cable Crunch</h2>
+            <p>Targets: Upper & Mid Abs. Adds resistance to build ab thickness and strength.</p>
+            <a href="https://www.youtube.com/watch?v=CBJfzYxENxE" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="abs">
+            <img src="images/exerciseImages/russian-twist.jpeg" alt="Russian Twist">
+            <h2>Russian Twist</h2>
+            <p>Targets: Obliques. Engages side abs and improves core rotation control.</p>
+            <a href="https://www.youtube.com/watch?v=wkD8rjkodUI" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <!-- Cardio Exercises -->
+        <div class="exercise" data-category="cardio">
+            <img src="images/exerciseImages/jumping-rope.webp" alt="Jump Rope">
+            <h2>Jump Rope</h2>
+            <p>Targets: Full Body. A high-intensity calorie burner that boosts coordination and endurance.</p>
+            <a href="https://www.youtube.com/watch?v=1BZMw1go6Zk" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="cardio">
+            <img src="images/exerciseImages/burpees.jpg" alt="Burpees">
+            <h2>Burpees</h2>
+            <p>Targets: Full Body. Explosive movement that raises heart rate and torches fat fast.</p>
+            <a href="https://www.youtube.com/watch?v=TU8QYVW0gDU" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="cardio">
+            <img src="images/exerciseImages/high-knees.webp" alt="High Knees">
+            <h2>High Knees</h2>
+            <p>Targets: Legs & Core. Elevates heart rate while strengthening your legs and improving agility.</p>
+            <a href="https://www.youtube.com/watch?v=8opcQdC-V-U" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <!-- Others Exercises -->
+        <div class="exercise" data-category="others">
+            <img src="images/exerciseImages/farmer-carry.webp" alt="Farmer's Carry">
+            <h2>Farmer's Carry</h2>
+            <p>Targets: Full Body. Builds grip, core, traps, and overall strength while improving posture.</p>
+            <a href="https://www.youtube.com/watch?v=5ZVnQkz2UiQ" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="others">
+            <img src="images/exerciseImages/battle-ropes.jpeg" alt="Battle Ropes">
+            <h2>Battle Ropes</h2>
+            <p>Targets: Arms & Shoulders. Explosive cardio-finisher for full-body power and endurance.</p>
+            <a href="https://www.youtube.com/watch?v=7Sa-EdV3YjY" target="_blank">How to Do This Exercise</a>
+        </div>
+
+        <div class="exercise" data-category="others">
+            <img src="images/exerciseImages/box-jump.webp" alt="Box Jump">
+            <h2>Box Jump</h2>
+            <p>Targets: Legs & Glutes. Great for explosive power, athleticism, and conditioning.</p>
+            <a href="https://www.youtube.com/watch?v=52r7IrLxgUo" target="_blank">How to Do This Exercise</a>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const exercises = document.querySelectorAll('.exercise');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                // Get the selected category
+                const category = button.getAttribute('data-tab');
+
+                // Show/hide exercises based on category
+                exercises.forEach(exercise => {
+                    if (exercise.getAttribute('data-category') === category) {
+                        exercise.style.display = 'block';
+                    } else {
+                        exercise.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Show chest tab by default
+        document.querySelector('.tab-btn[data-tab="chest"]').click();
+    </script>
+</body>
+</html>

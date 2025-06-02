@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="BMICalculator.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/FFlogo.png" alt="Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="DietPlans.html">Diet Plans</a></li>
+            <li><a href="ExercisePlans.html">Exercise Plans</a></li>
+            <li class="dropdown">
+                <a class="dropbtn">All Features</a>
+                <ul class="dropdown-content">
+                    <li><a href="index.html#fitness-planner">Fitness Planner</a></li>
+                    <li><a href="OneRepMaxCalculator.html">1Rep Max Calculator</a></li>
+                    <li><a href="StrengthLevelCalculator.html">Strength Level Calculator</a></li>
+                    <li><a href="BMICalculator.html">BMI Calculator</a></li>
+                    <li><a href="BodyFatCalculator.html">Body Fat Calculator</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="spacer"></div>
+    </nav>
+
+    <h1 style="text-align: center;">BMI Calculator</h1>
+
+    <div class="description">
+        <p>This BMI Calculator estimates your Body Mass Index based on your weight and height. BMI is a simple measure used to assess whether you have a healthy body weight for your height. Enter your details below to calculate your BMI and see the category!</p>
+    </div>
+
+    <div class="calculator-container">
+        <div class="input-section">
+            <label for="weight">Weight:</label>
+            <input type="number" id="weight" min="0" placeholder="Enter weight (kg)" required> <span>kg</span>
+
+            <label for="height">Height:</label>
+            <input type="number" id="height" min="0" placeholder="Enter height (cm)" required> <span>cm</span>
+
+            <button id="calculate-btn">Calculate BMI</button>
+            <button id="reset-btn">Reset</button>
+        </div>
+        <div class="result-section">
+            <h3 class="result-label">Estimated BMI</h3>
+            <p id="result">0</p>
+            <p id="interpretation" class="interpretation-text"></p>
+        </div>
+    </div>
+
+    <script>
+        // BMI Calculation
+        document.getElementById('calculate-btn').addEventListener('click', () => {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const heightCm = parseFloat(document.getElementById('height').value);
+            const resultElement = document.getElementById('result');
+            const interpretationElement = document.getElementById('interpretation');
+
+            // Validation
+            if (isNaN(weight) || isNaN(heightCm) || weight <= 0 || heightCm <= 0) {
+                resultElement.textContent = 'Please enter valid values (weight and height > 0)';
+                interpretationElement.textContent = '';
+                return;
+            }
+
+            // Convert height from cm to meters
+            const heightM = heightCm / 100;
+            // BMI Formula: weight (kg) / [height (m)]²
+            const bmi = weight / (heightM * heightM);
+            resultElement.textContent = `${bmi.toFixed(1)}`;
+
+            // Categorize BMI based on WHO standards
+            let bmiCategory = '';
+            if (bmi < 18.5) {
+                bmiCategory = 'Underweight';
+            } else if (bmi < 25) {
+                bmiCategory = 'Normal';
+            } else if (bmi < 30) {
+                bmiCategory = 'Overweight';
+            } else {
+                bmiCategory = 'Obese';
+            }
+            interpretationElement.textContent = `Your BMI category is: ${bmiCategory}. ${getInterpretation(bmiCategory)}`;
+        });
+
+        // Reset Functionality
+        document.getElementById('reset-btn').addEventListener('click', () => {
+            document.getElementById('weight').value = '';
+            document.getElementById('height').value = '';
+            document.getElementById('result').textContent = '0';
+            document.getElementById('interpretation').textContent = '';
+        });
+
+        // Function to provide interpretation based on BMI category
+        function getInterpretation(category) {
+            const tips = {
+                'Underweight': 'Consider consulting a healthcare provider to gain weight healthily.',
+                'Normal': 'Your weight is in a healthy range—maintain a balanced diet and exercise!',
+                'Overweight': 'Consider lifestyle changes like diet and exercise to reach a healthier weight.',
+                'Obese': 'Consult a healthcare provider for a plan to manage your weight effectively.'
+            };
+            return tips[category] || '';
+        }
+    </script>
+</body>
+</html>

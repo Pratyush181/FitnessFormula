@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Formula - Your Personalized Fitness Planner</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/FFlogo.png" alt="Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="DietPlans.html">Diet Plans</a></li>
+            <li><a href="ExercisePlans.html">Exercise Plans</a></li>
+            <li class="dropdown">
+                <a class="dropbtn">All Features</a>
+                <ul class="dropdown-content">
+                    <li><a href="index.html#fitness-planner">Fitness Planner</a></li>
+                    <li><a href="OneRepMaxCalculator.html">1Rep Max Calculator</a></li>
+                    <li><a href="StrengthLevelCalculator.html">Strength Level Calculator</a></li>
+                    <li><a href="BMICalculator.html">BMI Calculator</a></li>
+                    <li><a href="BodyFatCalculator.html">Body Fat Calculator</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="spacer"></div>
+    </nav>
+
+    <section class="slideshow-section">
+        <div class="slideshow-container">
+            <div class="slide active">
+                <img src="images/homePage/getFitnessPlan.jpg" alt="Personalized Fitness Plans">
+                <div class="welcome-overlay">
+                    <div class="welcome-message">
+                        <h1>Transform Your Fitness Journey</h1>
+                        <h2>Personalized Plans for Your Goals</h2>
+                        <p>Get custom workout and nutrition plans tailored to your unique needs and objectives.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="images/homePage/detailedWorkoutPlans.jpg" alt="Workout Plans">
+                <div class="welcome-overlay">
+                    <div class="welcome-message">
+                        <h1>Detailed Workout Plans</h1>
+                        <h2>Expertly Crafted for You</h2>
+                        <p>Access comprehensive workout routines designed to help you achieve your fitness goals.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="images/homePage/dietPlans.jpg" alt="Diet Plans">
+                <div class="welcome-overlay">
+                    <div class="welcome-message">
+                        <h1>Nutrition Made Simple</h1>
+                        <h2>Custom Diet Plans</h2>
+                        <p>Get personalized meal plans that align with your fitness goals and dietary preferences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fitness-planner">
+        <h2 class="FitnessPlannerHead">Create Your Personalized Plan</h2>
+        <div class="input-output-box">
+            <div class="input-section">
+                <h2>Your Details</h2>
+                <form id="fitness-form">
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <select class="userInput" id="age" required>
+                            <option value="">Select your age</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                            <option value="32">32</option>
+                            <option value="33">33</option>
+                            <option value="34">34</option>
+                            <option value="35">35</option>
+                            <option value="36">36</option>
+                            <option value="37">37</option>
+                            <option value="38">38</option>
+                            <option value="39">39</option>
+                            <option value="40">40</option>
+                            <option value="41">41</option>
+                            <option value="42">42</option>
+                            <option value="43">43</option>
+                            <option value="44">44</option>
+                            <option value="45">45</option>
+                            <option value="46">46</option>
+                            <option value="47">47</option>
+                            <option value="48">48</option>
+                            <option value="49">49</option>
+                            <option value="50">50</option>
+                            <option value="51">51</option>
+                            <option value="52">52</option>
+                            <option value="53">53</option>
+                            <option value="54">54</option>
+                            <option value="55">55</option>
+                            <option value="56">56</option>
+                            <option value="57">57</option>
+                            <option value="58">58</option>
+                            <option value="59">59</option>
+                            <option value="60">60</option>
+                            <option value="61">61</option>
+                            <option value="62">62</option>
+                            <option value="63">63</option>
+                            <option value="64">64</option>
+                            <option value="65">65</option>
+                            <option value="66">66</option>
+                            <option value="67">67</option>
+                            <option value="68">68</option>
+                            <option value="69">69</option>
+                            <option value="70">70</option>
+                            <option value="71">71</option>
+                            <option value="72">72</option>
+                            <option value="73">73</option>
+                            <option value="74">74</option>
+                            <option value="75">75</option>
+                            <option value="76">76</option>
+                            <option value="77">77</option>
+                            <option value="78">78</option>
+                            <option value="79">79</option>
+                            <option value="80">80</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="height">Height (cm)</label>
+                        <input class="userInput" type="number" id="height" min="142" max="213" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="weight">Weight (kg)</label>
+                        <input class="userInput" type="number" id="weight" min="40" max="150" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select class="userInput" id="gender" required>
+                            <option value="">Select your gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="muscle_level">Muscle Level</label>
+                        <select class="userInput" id="muscle_level" required>
+                            <option value="">Select your muscle level</option>
+                            <option value="very_low">Very Low</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                            <option value="very_high">Very High</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fat_level">Body Fat Level</label>
+                        <select class="userInput" id="fat_level" required>
+                            <option value="">Select your body fat level</option>
+                            <option value="very_low">Very Low</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                            <option value="very_high">Very High</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="goal">Goal</label>
+                        <select class="userInput" id="goal" required>
+                            <option value="">Select your goal</option>
+                            <option value="build_muscle">Build Muscle</option>
+                            <option value="lose_fat">Lose Fat</option>
+                            <option value="body_recomp">Body Recomposition</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="workout_type">Workout Type</label>
+                        <select class="userInput" id="workout_type" required>
+                            <option value="">Select your preferred workout type</option>
+                            <option value="gym">Gym Workout</option>
+                            <option value="calisthenics">Bodyweight (Calisthenics)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="submit-btn">Generate Plan</button>
+                    <button type="reset" id="reset-btn">Reset Form</button>
+                </form>
+            </div>
+
+            <div id="output">
+                <h3>Your Personalized Plan</h3>
+                <div id="plan-output"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="images/FFlogo.png" alt="Fitness Formula Logo">
+                <p>Your journey to a better you starts here.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="DietPlans.html">Diet Plans</a></li>
+                    <li><a href="ExercisePlans.html">Exercise Plans</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Tools</h4>
+                <ul>
+                    <li><a href="OneRepMaxCalculator.html">1RM Calculator</a></li>
+                    <li><a href="StrengthLevelCalculator.html">Strength Level</a></li>
+                    <li><a href="BMICalculator.html">BMI Calculator</a></li>
+                    <li><a href="BodyFatCalculator.html">Body Fat Calculator</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strength Level Calculator</title>
+    <link rel="stylesheet" href="StrengthLevelCalculator.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/FFlogo.png" alt="Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="DietPlans.html">Diet Plans</a></li>
+            <li><a href="ExercisePlans.html">Exercise Plans</a></li>
+            <li class="dropdown">
+                <a class="dropbtn">All Features</a>
+                <ul class="dropdown-content">
+                    <li><a href="index.html#fitness-planner">Fitness Planner</a></li>
+                    <li><a href="OneRepMaxCalculator.html">1Rep Max Calculator</a></li>
+                    <li><a href="StrengthLevelCalculator.html">Strength Level Calculator</a></li>
+                    <li><a href="BMICalculator.html">BMI Calculator</a></li>
+                    <li><a href="BodyFatCalculator.html">Body Fat Calculator</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="spacer"></div>
+    </nav>
+
+    <h1 style="text-align: center; margin-top: 40px;">Strength Level Calculator</h1>
+
+    <div class="description">
+        <p>This Strength Level Calculator estimates your strength level based on your gender, age, bodyweight, chosen exercise, lift weight, and number of repetitions. It uses your estimated 1RM to categorize you (Beginner, Intermediate, Advanced, Elite) based on established fitness standards. Enter your details below to get started!</p>
+    </div>
+
+    <div class="calculator-container">
+        <div class="input-section">
+            <label for="gender">Gender:</label>
+            <select id="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" min="10" max="100" placeholder="Enter age" required>
+
+            <label for="bodyweight">Bodyweight:</label>
+            <input type="number" id="bodyweight" min="0" placeholder="Enter bodyweight (kg)" required> <span>kg</span>
+
+            <label for="exercise">Exercise:</label>
+            <select id="exercise" required>
+                <option value="benchpress">Bench Press</option>
+                <option value="squat">Squat</option>
+                <option value="deadlift">Deadlift</option>
+            </select>
+
+            <label for="lift">Lift:</label>
+            <input type="number" id="lift" min="0" placeholder="Enter lift weight (kg)" required> <span>kg</span>
+
+            <label for="repetitions">Repetitions:</label>
+            <input type="number" id="repetitions" min="1" placeholder="Enter reps" required>
+
+            <button id="calculate-btn">Calculate Strength</button>
+            <button id="reset-btn">Reset</button>
+        </div>
+        <div class="result-section">
+            <h3 class="result-label">Estimated Strength Level</h3>
+            <p id="result">0</p>
+            <p id="interpretation" class="interpretation-text"></p>
+        </div>
+    </div>
+
+    <script>
+        // Strength Level Calculation (Using Epley Formula for 1RM)
+        document.getElementById('calculate-btn').addEventListener('click', () => {
+            const gender = document.getElementById('gender').value;
+            const age = parseInt(document.getElementById('age').value);
+            const bodyweight = parseFloat(document.getElementById('bodyweight').value);
+            const exercise = document.getElementById('exercise').value;
+            const lift = parseFloat(document.getElementById('lift').value);
+            const reps = parseInt(document.getElementById('repetitions').value);
+            const resultElement = document.getElementById('result');
+            const interpretationElement = document.getElementById('interpretation');
+
+            // Validation
+            if (isNaN(age) || isNaN(bodyweight) || isNaN(lift) || isNaN(reps) || age < 10 || age > 100 || bodyweight <= 0 || lift <= 0 || reps < 1) {
+                resultElement.textContent = 'Please enter valid values (age 10-100, weight > 0, reps >= 1)';
+                interpretationElement.textContent = '';
+                return;
+            }
+
+            // Epley Formula: 1RM = weight × (1 + reps / 30)
+            const oneRepMax = lift * (1 + reps / 30);
+            let genderFactor = (gender === 'male') ? 1.1 : 1.0; // Moderate male boost
+            let ageFactor = (age < 25) ? 1.0 : 1 - ((age - 25) / 200); // No penalty for under 25
+            let strengthRatio = oneRepMax / bodyweight; // 1RM relative to bodyweight
+
+            // Adjust strength ratio based on exercise (approximate standards)
+            let adjustedRatio = strengthRatio;
+            if (exercise === 'benchpress') adjustedRatio *= 0.9; // Bench is typically lower ratio
+            if (exercise === 'deadlift') adjustedRatio *= 1.1; // Deadlift often higher ratio
+
+            // Strength Level based on bodyweight multiples (approximate standards)
+            let strengthLevel = '';
+            if (adjustedRatio < 1.0) {
+                strengthLevel = 'Beginner';
+            } else if (adjustedRatio < 1.5) {
+                strengthLevel = 'Intermediate';
+            } else if (adjustedRatio < 2.0) {
+                strengthLevel = 'Advanced';
+            } else {
+                strengthLevel = 'Elite';
+            }
+
+            const strengthScore = oneRepMax * genderFactor * ageFactor; // Estimated 1RM as score
+            resultElement.textContent = `${strengthScore.toFixed(2)} kg (Estimated 1RM)`;
+
+            interpretationElement.textContent = `Your strength level is: ${strengthLevel}. ${getInterpretation(strengthLevel, exercise)}`;
+        });
+
+        // Reset Functionality
+        document.getElementById('reset-btn').addEventListener('click', () => {
+            document.getElementById('gender').value = 'male';
+            document.getElementById('age').value = '';
+            document.getElementById('bodyweight').value = '';
+            document.getElementById('exercise').value = 'benchpress';
+            document.getElementById('lift').value = '';
+            document.getElementById('repetitions').value = '';
+            document.getElementById('result').textContent = '0';
+            document.getElementById('interpretation').textContent = '';
+        });
+
+        // Function to provide interpretation based on strength level and exercise
+        function getInterpretation(level, exercise) {
+            const tips = {
+                'Beginner': `Focus on form and consistency. For ${exercise}, aim to lift ~1x your bodyweight.`,
+                'Intermediate': `Good progress! Refine technique and target ~1.5x bodyweight for ${exercise}.`,
+                'Advanced': `Excellent strength! You're at ~2x bodyweight for ${exercise}—consider advanced training.`,
+                'Elite': `Elite level! You exceed 2x bodyweight for ${exercise}—explore competitive lifting.`
+            };
+            return tips[level] || '';
+        }
+    </script>
+</body>
+</html>

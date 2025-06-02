@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Fat Calculator</title>
+    <link rel="stylesheet" href="BodyFatCalculator.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/FFlogo.png" alt="Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="DietPlans.html">Diet Plans</a></li>
+            <li><a href="ExercisePlans.html">Exercise Plans</a></li>
+            <li class="dropdown">
+                <a class="dropbtn">All Features</a>
+                <ul class="dropdown-content">
+                    <li><a href="index.html#fitness-planner">Fitness Planner</a></li>
+                    <li><a href="OneRepMaxCalculator.html">1Rep Max Calculator</a></li>
+                    <li><a href="StrengthLevelCalculator.html">Strength Level Calculator</a></li>
+                    <li><a href="BMICalculator.html">BMI Calculator</a></li>
+                    <li><a href="BodyFatCalculator.html">Body Fat Calculator</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="spacer"></div>
+    </nav>
+
+    <h1 style="text-align: center;">Body Fat Calculator</h1>
+
+    <div class="description">
+        <p>This Body Fat Calculator estimates your body fat percentage using the U.S. Navy Method based on your gender, weight, height, waist, neck, and (for females) hip measurements. Enter your details below to calculate your body fat percentage and see the category!</p>
+    </div>
+
+    <div class="calculator-container">
+        <div class="input-section">
+            <label for="gender">Gender:</label>
+            <select id="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <label for="weight">Weight:</label>
+            <input type="number" id="weight" min="0" placeholder="Enter weight (kg)" required> <span>kg</span>
+
+            <label for="height">Height:</label>
+            <input type="number" id="height" min="0" placeholder="Enter height (cm)" required> <span>cm</span>
+
+            <label for="waist">Waist:</label>
+            <input type="number" id="waist" min="0" placeholder="Enter waist circumference (cm)" required> <span>cm</span>
+
+            <label for="neck">Neck:</label>
+            <input type="number" id="neck" min="0" placeholder="Enter neck circumference (cm)" required> <span>cm</span>
+
+            <label for="hips">Hips (Females only):</label>
+            <input type="number" id="hips" min="0" placeholder="Enter hip circumference (cm)" > <span>cm</span>
+
+            <button id="calculate-btn">Calculate Body Fat</button>
+            <button id="reset-btn">Reset</button>
+        </div>
+        <div class="result-section">
+            <h3 class="result-label">Body Fat Result</h3>
+            <div id="result" class="result-value">0%</div>
+            
+            <div class="gauge-container">
+                <div class="gauge">
+                    <div class="gauge-segments">
+                        <div class="segment essential" title="Essential Fat (2-5%)"></div>
+                        <div class="segment athletes" title="Athletes (6-13%)"></div>
+                        <div class="segment fitness" title="Fitness (14-17%)"></div>
+                        <div class="segment average" title="Average (18-24%)"></div>
+                        <div class="segment obese" title="Obese (25%+)"></div>
+                    </div>
+                    <div id="gauge-pointer" class="gauge-pointer"></div>
+                </div>
+                <div class="gauge-labels">
+                    <span>2%</span>
+                    <span>6%</span>
+                    <span>14%</span>
+                    <span>18%</span>
+                    <span>25%</span>
+                </div>
+            </div>
+
+            <div class="result-details">
+                <table>
+                    <tr>
+                        <td>Body Fat (U.S. Navy Method)</td>
+                        <td id="navy-result">0%</td>
+                    </tr>
+                    <tr>
+                        <td>Body Fat Category</td>
+                        <td id="category-result">-</td>
+                    </tr>
+                    <tr>
+                        <td>Body Fat Mass</td>
+                        <td id="fat-mass">0 kg</td>
+                    </tr>
+                    <tr>
+                        <td>Lean Body Mass</td>
+                        <td id="lean-mass">0 kg</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <p id="interpretation" class="interpretation-text"></p>
+        </div>
+    </div>
+
+    <script>
+        // Body Fat Calculation (U.S. Navy Method)
+        document.getElementById('calculate-btn').addEventListener('click', () => {
+            const gender = document.getElementById('gender').value;
+            const weight = parseFloat(document.getElementById('weight').value);
+            const heightCm = parseFloat(document.getElementById('height').value);
+            const waistCm = parseFloat(document.getElementById('waist').value);
+            const neckCm = parseFloat(document.getElementById('neck').value);
+            const hipsCm = parseFloat(document.getElementById('hips').value) || 0; // Optional for females
+            const resultElement = document.getElementById('result');
+            const interpretationElement = document.getElementById('interpretation');
+
+            // Validation
+            if (isNaN(weight) || isNaN(heightCm) || isNaN(waistCm) || isNaN(neckCm) || weight <= 0 || heightCm <= 0 || waistCm <= 0 || neckCm <= 0) {
+                resultElement.textContent = 'Please enter valid values (all measurements > 0)';
+                interpretationElement.textContent = '';
+                return;
+            }
+
+            // Convert height to inches (U.S. Navy Method uses inches)
+            const heightIn = heightCm / 2.54;
+            const waistIn = waistCm / 2.54;
+            const neckIn = neckCm / 2.54;
+            const hipsIn = hipsCm / 2.54 || 0;
+
+            // U.S. Navy Method formula
+            let bfFactor;
+            if (gender === 'male') {
+                bfFactor = 86.010 * Math.log10(waistIn - neckIn) - 70.041 * Math.log10(heightIn) + 36.76;
+            } else { // female
+                bfFactor = 163.205 * Math.log10(waistIn + hipsIn - neckIn) - 97.684 * Math.log10(heightIn) - 78.387;
+            }
+
+            const bodyFatPercentage = bfFactor.toFixed(1);
+            
+            // Update all result elements
+            document.getElementById('result').textContent = `${bodyFatPercentage}%`;
+            document.getElementById('navy-result').textContent = `${bodyFatPercentage}%`;
+            
+            // Calculate and update masses
+            const fatMass = (weight * (bodyFatPercentage / 100)).toFixed(1);
+            const leanMass = (weight - fatMass).toFixed(1);
+            document.getElementById('fat-mass').textContent = `${fatMass} kg`;
+            document.getElementById('lean-mass').textContent = `${leanMass} kg`;
+            
+            // Update gauge pointer position
+            const pointer = document.getElementById('gauge-pointer');
+            const percentage = Math.min(Math.max(bodyFatPercentage, 2), 25); // Clamp between 2% and 25%
+            const position = ((percentage - 2) / (25 - 2)) * 100; // Scale adjusted to match 2-25% range
+            pointer.style.left = `${position}%`;
+
+            // Categorize Body Fat Percentage (approximate standards for adults)
+            let bfCategory = '';
+            if (gender === 'male') {
+                if (bodyFatPercentage < 8) bfCategory = 'Essential Fat';
+                else if (bodyFatPercentage < 15) bfCategory = 'Athletic';
+                else if (bodyFatPercentage < 20) bfCategory = 'Fit';
+                else if (bodyFatPercentage < 25) bfCategory = 'Average';
+                else bfCategory = 'Overfat';
+            } else { // female
+                if (bodyFatPercentage < 14) bfCategory = 'Essential Fat';
+                else if (bodyFatPercentage < 21) bfCategory = 'Athletic';
+                else if (bodyFatPercentage < 25) bfCategory = 'Fit';
+                else if (bodyFatPercentage < 32) bfCategory = 'Average';
+                else bfCategory = 'Overfat';
+            }
+            document.getElementById('category-result').textContent = bfCategory;
+
+            interpretationElement.textContent = `Your body fat category is: ${bfCategory}. ${getInterpretation(bfCategory, gender)}`;
+        });
+
+        // Reset Functionality
+        document.getElementById('reset-btn').addEventListener('click', () => {
+            document.getElementById('gender').value = 'male';
+            document.getElementById('weight').value = '';
+            document.getElementById('height').value = '';
+            document.getElementById('waist').value = '';
+            document.getElementById('neck').value = '';
+            document.getElementById('hips').value = '';
+            document.getElementById('result').textContent = '0%';
+            document.getElementById('interpretation').textContent = '';
+        });
+
+        // Function to provide interpretation based on body fat category and gender
+        function getInterpretation(category, gender) {
+            const tips = {
+                'Essential Fat': 'Very low fat levels—consult a professional to avoid health risks.',
+                'Athletic': `Great for athletes! Maintain with balanced training (${gender === 'male' ? '8-14%' : '14-20%'}).`,
+                'Fit': `Healthy and fit range—keep up the good work (${gender === 'male' ? '15-19%' : '21-24%'})!`,
+                'Average': `Within normal range—consider optimizing with diet/exercise (${gender === 'male' ? '20-24%' : '25-31%'}).`,
+                'Overfat': 'Consider a plan with a professional to reduce body fat for better health.'
+            };
+            return tips[category] || '';
+        }
+    </script>
+</body>
+</html>
